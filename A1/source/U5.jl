@@ -21,11 +21,11 @@ x = range(start=-1, stop=3, length=300)
 a = 1:5
 
 # Auswertung:
-res = zeros(300,5)
-for i in a
-    part = f.(x,i)
-    res[:,i] = part
-end 
+# permutedims(a) wandelt a in Zeilenvektor
+# (ähnlich wie Transposition, aber nicht rekusiv
+# implementiert). Somit kann broadcasting die
+# dims richtig extrapolieren.
+res = f.(x, permutedims(a))
 
 # Plotten:
 for i in a
