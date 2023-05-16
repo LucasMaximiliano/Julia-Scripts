@@ -18,7 +18,7 @@ function Hinv(n)
     return res
 end
 
-n = [1, 2, 4, 8, 16, 32] #willkürlich gewählt!
+n = [1, 2, 4, 8, 16, 32] #willkürlich gewählt! (um Overflow zu vermeiden, siehe big)
 
 for dim in n
     b  = rand(Float64, dim)
