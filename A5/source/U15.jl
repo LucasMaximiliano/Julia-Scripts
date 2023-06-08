@@ -41,3 +41,4 @@ C, E = ausgleich()
 x = 650:850
 y = C * exp.(-E./x)
 plot!(x,y,label="geschätztes Modell")
+#savefig("./Julia-Scripts/A5/output/U15.png")
