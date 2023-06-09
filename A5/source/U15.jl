@@ -12,12 +12,13 @@ using LinearAlgebra
 data = readdlm("./Julia-Scripts/A5/data/thermistor.txt")
 
 # Visualizierung:
-##  !!! Daten entsprechen Modell gar nicht !!!
 y = data[:,2]
 x = data[:,1]
-scatter(x,y,title="Gemessene Daten",label="Messpunkte")
+ε = data[:,3]
+scatter(x,y,yscale=:ln,yerror=ε,title="Gemessene Daten",label="Messpunkte")
 scatter!(xlabel="T")
 scatter!(ylabel="R")
+scatter!(legend=:topleft)
 
 # Ausgleichsrechnung:
 function ausgleich()
@@ -41,4 +42,4 @@ C, E = ausgleich()
 x = 650:850
 y = C * exp.(-E./x)
 plot!(x,y,label="geschätztes Modell")
-#savefig("./Julia-Scripts/A5/output/U15.png")
+savefig("./Julia-Scripts/A5/output/U15_log.png")
