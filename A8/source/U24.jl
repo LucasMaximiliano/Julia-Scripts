@@ -94,7 +94,7 @@ r₂ = rel_fehler.( int_pol_2(b)-int_pol_2(a) , alt_box.(pol_2,a,b,n) )
 r₃ = rel_fehler.( int_pol_3(b)-int_pol_3(a) , alt_box.(pol_3,a,b,n) )
 r₄ = rel_fehler.( int_pol_4(b)-int_pol_4(a) , alt_box.(pol_4,a,b,n) )
 
-plot(n,r₀,title="Quadratur mit Alternierenden Box-Regel",label="Grad 0",xlabel="Anzahl von Teilintervalle",ylabel="Relativer Fehler",xscale=:ln,yscale=:ln)
+plot(n,r₀,title="Quadratur mit Alternierenden Box-Regel",label="Grad 0",xlabel="Anzahl von Teilintervalle",ylabel="Relativer Fehler",xscale=:log10,yscale=:log10,yaxis=(:log10, [0.1, :auto]))
 plot!(n,r₁,label="Grad 1")
 plot!(n,r₂,label="Grad 2")
 plot!(n,r₃,label="Grad 3")
