@@ -17,6 +17,7 @@ function newton(f,x₀,TOL,x_max)
         Df = ForwardDiff.jacobian(f,x)
         v  = Df \ -f(x)
         x  = x + v
+        i += 1
     end
     return x
 end
@@ -47,7 +48,7 @@ function RK4(f,h,k,x₀)
         K₁   = f(xₖ)
         K₂   = f(xₖ+h/2*K₁)
         K₃   = f(xₖ+h/2*K₂)
-        K₄   = f(xₖ+h/2*K₃)
+        K₄   = f(xₖ+h*K₃)
         xₖ₊₁ = xₖ + h/6 * (K₁ + 2*K₂ + 2*K₃ + K₄) 
     end
     return xₖ₊₁
@@ -76,4 +77,4 @@ ref = [ RK4(f,h_ref,k_ref,x₀) for _ = 1:4]
 scatter(norm.(y₁-ref),h,label="Euler")
 scatter!(norm.(y₂-ref),h,label="Runge")
 scatter!(title="Euler/Runge Compared to RK4",ylabel="Absolute Error",xlabel="Step-size")
-scatter!(yscale=:log10,xscale=:log10)
+#scatter!(yscale=:log10,xscale=:log10)
