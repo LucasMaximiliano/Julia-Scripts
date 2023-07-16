@@ -119,4 +119,4 @@ plot!(n,a₃,label="Grad 3")
 plot!(n,a₄,label="Grad 4")
 
 plot(p1,p2,plot_title="Quadratur mit Alternierenden Box-Regel")
-savefig("./Julia-Scripts/A8/output/U24.png")
+#savefig("./Julia-Scripts/A8/output/U24.png")
